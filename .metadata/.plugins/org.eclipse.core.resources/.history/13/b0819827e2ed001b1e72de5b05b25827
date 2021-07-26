@@ -1,0 +1,35 @@
+package com.amdocs.training.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+import com.amdocs.training.dao.CourseDAO;
+import com.amdocs.training.dao.impl.CourseDAOImpl;
+import com.amdocs.training.model.Admin;
+import com.amdocs.training.model.Course;
+
+
+@Controller
+public class CourseController {
+	//AdminDAO adminDAO = new AdminDAOImpl();
+	CourseDAO courseDAO = new CourseDAOImpl() ;
+	@GetMapping("/course-list")
+	public String AdminPage(Model model ){
+		List<Course> courseList=courseDAO.findAll();
+		
+		model.addAttribute("list",courseList);
+		model.addAttribute("message", "Welcome to eLearning Portal");
+		return "Course";
+		
+	}
+	@GetMapping("/addcourse")
+	public String addAdminForm(Model model) {
+		model.addAttribute("course", new Course());
+		return "add-course";
+	}
+	
+}

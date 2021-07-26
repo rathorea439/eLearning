@@ -1,0 +1,58 @@
+package com.amdocs.training.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.amdocs.training.dao.CourseDAO;
+import com.amdocs.training.dao.impl.CourseDAOImpl;
+import com.amdocs.training.model.Course;
+
+@Controller
+public class CourseController {
+
+	CourseDAO CourseDAO = new CourseDAOImpl();
+	@GetMapping("/Course-list")
+	public String CoursePage(Model model ){
+		List<Course> CourseList=CourseDAO.findAll();
+		
+		model.addAttribute("list",CourseList);
+		model.addAttribute("message", "Welcome to eLearning Portal");
+		return "Course";
+		
+	}
+	@GetMapping("/addCourse")
+	public String addCourseForm(Model model) {
+		model.addAttribute("user", new Course());
+		return "add-Course";
+	}
+
+	@PostMapping("/register")
+	public String addUser(@ModelAttribute("Course") Course u) {
+		CourseDAO.addCourse(u);
+		return "redirect:/Course-list";
+	}
+	
+	@GetMapping("/delete-Course/{Course_id}")
+	public String deleteUser(@PathVariable("Course_id") int id) {
+		CourseDAO.deleteCourse(id);
+		return "redirect:/Course-list";
+	}
+	@GetMapping("/update-Course/{Course_id}")
+	public String updateUserForm(@PathVariable("Course_id") int id, Model model) {
+		Course Course = CourseDAO.getCourseById(id);
+		model.addAttribute("Course", Course);
+		return "update-Course";
+	}
+
+	@PostMapping("/update-Course")
+	public String updateUser(@ModelAttribute("Course") Course Course) {
+		CourseDAO.updateCourse(Course);
+		return "redirect:/Course-list";
+	}
+}

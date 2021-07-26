@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page isELIgnored="false" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Course data</title>
+</head>
+<body>
+
+<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>Course name</th>
+			<th>Course Description</th>
+			<th>Course Fees</th>
+			<th>Course Resources</th>
+			<th>Actions</th>
+		</tr>
+
+		<c:forEach var="Course" items="${list }">
+			<tr>
+				<td>${Course.Course_id }</td>
+				<td>${Course.c_name }</td>
+				<td>${Course.c_desp }</td>
+				<td>${Course.c_fees }</td>
+				<td>${Course.c_resource }</td>
+				<td><a href="<c:url value='/delete-Course/${Course.Course_id }'/>">Delete</a>
+					| <a href="<c:url value='/update-Course/${Course.Course_id }'/>">Update</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+	<a href = "addCourse">add new Course</a>
+</body>
+</html>

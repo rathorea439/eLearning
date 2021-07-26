@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Mon Jul 26 10:35:46 IST 2021
+org.eclipse.jst.j2ee.server\:/binary\:C\:\\Users\\Aman\ Rathore\\.m2\\repository\\org\\springframework\\spring-web\\5.3.9\\spring-web-5.3.9.jar=WEB-INF/lib/spring-web-5.3.9.jar
+org.eclipse.jst.j2ee.server\:eLearing-backend=WEB-INF/lib/eLearing-backend-0.0.1-SNAPSHOT.jar

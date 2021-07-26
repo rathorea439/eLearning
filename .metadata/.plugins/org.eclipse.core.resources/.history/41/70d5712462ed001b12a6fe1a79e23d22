@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Users List</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Address</th>
+			<th>Actions</th>
+		</tr>
+
+		<c:forEach var="user" items="${list }">
+			<tr>
+				<td>${user.id }</td>
+				<td>${user.username }</td>
+				<td>${user.email }</td>
+				<td>${user.address }</td>
+			
+			</tr>
+		</c:forEach>
+	</table>
+	<br>
+	<a href="addUser">Add New User</a>
+</body>
+</html>

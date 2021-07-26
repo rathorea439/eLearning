@@ -1,0 +1,23 @@
+package com.amdocs.training.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.amdocs.training.dao.AdminDAO;
+import com.amdocs.training.model.Admin;
+
+@Controller
+public class AdminController {
+
+	AdminDAO adminDAO;
+	@GetMapping("/admin-list")
+	public String AdminPage(Model model ){
+		List<Admin> adminList=adminDAO.findAll();
+		model.addAttribute("list",adminList);
+		return "admin";
+		
+	}
+}

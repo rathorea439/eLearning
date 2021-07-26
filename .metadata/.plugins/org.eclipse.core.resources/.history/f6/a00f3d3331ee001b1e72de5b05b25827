@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Contact</title>
+</head>
+<body>
+	<h2>Contact Registration</h2>
+	<hr>
+	<form:form action="register4" method="POST" modelAttribute="contact">
+		<pre>
+        Id        : <form:input path="contact_id" /><br>
+        Contact name  : <form:input path="c_name"/><br>
+        Contact desp  : <form:input path="c_desp" /><br>
+        Contact fees  : <form:input path="c_fees" /><br>
+        Contact Resources  : <form:input path="c_resource" /><br>
+        <input type="submit" value="Register" /> <input
+				type="reset" value="Reset" />
+        </pre>
+	</form:form>
+</body>
+</html>

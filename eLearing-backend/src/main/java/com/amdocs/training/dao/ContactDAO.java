@@ -8,9 +8,9 @@ public interface ContactDAO {
 
 	boolean addContact(Contact contact);
 
-	Contact getContactById(Long id);
+	Contact getContactById(int id);
 
-	boolean deleteContact(Long id);
+	boolean deleteContact(int id);
 
 	boolean updateContact(Contact conctact);
 }

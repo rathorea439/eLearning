@@ -13,25 +13,39 @@ import com.amdocs.training.dao.UserDAO;
 import com.amdocs.training.dao.impl.UserDAOImpl;
 import com.amdocs.training.model.User;
 
+
+
 @Controller
 public class UserController {
 
-	UserDAO userDAO = new UserDAOImpl();
-
+	UserDAO userDAO = new UserDAOImpl() ;
+	
 	@GetMapping("/user-list")
-	public String usersPage(Model model) {
-
-		List<User> userList = userDAO.findAll();
-		model.addAttribute("list", userList);
-		return "users";
+	public String UserPage(Model model ){
+		List<User> userList=userDAO.findAll();
+		
+		model.addAttribute("list",userList);
+		model.addAttribute("message", "Welcome to eLearning Portal");
+		return "User";
+		
 	}
-	@GetMapping("/delete-user/{id}")
-	public String deleteUser(@PathVariable("id") Long id) {
+	@GetMapping("/adduser")
+	public String addUserForm(Model model) {
+		model.addAttribute("user", new User());
+		return "add-user";
+	}
+	@PostMapping("/register2")
+	public String addUser(@ModelAttribute("user") User u) {
+		userDAO.addUser(u);
+		return "redirect:/user-list";
+	}
+	@GetMapping("/delete-user/{user_id}")
+	public String deleteUser(@PathVariable("user_id") int id) {
 		userDAO.deleteUser(id);
 		return "redirect:/user-list";
 	}
-	@GetMapping("/update-user/{id}")
-	public String updateUserForm(@PathVariable("id") Long id, Model model) {
+	@GetMapping("/update-user/{user_id}")
+	public String updateuserForm(@PathVariable("user_id") int id, Model model) {
 		User user = userDAO.getUserById(id);
 		model.addAttribute("user", user);
 		return "update-user";
@@ -42,6 +56,4 @@ public class UserController {
 		userDAO.updateUser(user);
 		return "redirect:/user-list";
 	}
-	
-
 }

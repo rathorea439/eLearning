@@ -10,9 +10,9 @@ public interface UserDAO {
 
 	boolean addUser(User user);
 
-	User getUserById(Long id);
+	User getUserById(int id);
 
-	boolean deleteUser(Long id);
+	boolean deleteUser(int id);
 	
 	boolean updateUser(User user);
 }

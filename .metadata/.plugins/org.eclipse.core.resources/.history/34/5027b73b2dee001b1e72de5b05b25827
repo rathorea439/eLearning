@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Feedback</title>
+</head>
+<body>
+	<h2>Feedback Registration</h2>
+	<hr>
+	<form:form action="register1" method="POST" modelAttribute="feedback">
+		<pre>
+        USer Id        : <form:input path="user_id"  /><br>
+        Feedback name  : <form:input path="c_name"/><br>
+        Feedback desp  : <form:input path="c_desp" /><br>
+        Feedback fees  : <form:input path="c_fees" /><br>
+        Feedback Resources  : <form:input path="c_resource" /><br>
+        <input type="submit" value="Register" /> <input
+				type="reset" value="Reset" />
+        </pre>
+	</form:form>
+</body>
+</html>

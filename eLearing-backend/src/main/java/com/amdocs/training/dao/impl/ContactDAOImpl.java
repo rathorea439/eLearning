@@ -66,7 +66,7 @@ public class ContactDAOImpl implements ContactDAO {
 	}
 
 	@Override
-	public Contact getContactById(Long id) {
+	public Contact getContactById(int id) {
 		String query = "select * from contact where contact_id = ?";
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -91,7 +91,7 @@ public class ContactDAOImpl implements ContactDAO {
 	}
 
 	@Override
-	public boolean deleteContact(Long id) {
+	public boolean deleteContact(int id) {
 		String query = "delete from contact where contact_id = ?";
 		try {
 			PreparedStatement ps = conn.prepareStatement(query);

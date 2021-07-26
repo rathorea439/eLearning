@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.amdocs.training.dao.CourseDAO;
 import com.amdocs.training.dao.impl.CourseDAOImpl;
 import com.amdocs.training.model.Course;
-import com.amdocs.training.model.Course;
+
 
 
 @Controller

@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page isELIgnored="false" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Contact data</title>
+</head>
+<body>
+
+<table border="1">
+		<tr>
+			<th>Contact ID</th>
+			<th>Contact name</th>
+			<th>contact Description</th>
+			<th>Contact fees</th>
+			<th>Contact Resources </th>
+			<th>Actions</th>
+		</tr>
+
+		<c:forEach var="contact" items="${list }">
+			<tr>
+				<td>${contact.contact_id }</td>
+				<td>${contact.c_name }</td>
+				<td>${contact.c_desp }</td>
+				<td>${contact.c_fees }</td>
+				<td>${contact.c_resource }</td>
+				<td><a href="<c:url value='/delete-contact/${contact.contact_id }'/>">Delete</a>
+					| <a href="<c:url value='/update-contact/${contact.contact_id }'/>">Update</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+	<a href = "addcontact">add new contact</a>
+</body>
+</html>

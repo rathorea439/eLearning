@@ -13,6 +13,6 @@
 <a href = "course-list"> course</a>
 <a href = "feedback-list"> feedback</a>
 <a href = "contact-list">contact</a>
-<h2>${list} hii</h2>
+<h2> hii</h2>
 </body>
 </html>

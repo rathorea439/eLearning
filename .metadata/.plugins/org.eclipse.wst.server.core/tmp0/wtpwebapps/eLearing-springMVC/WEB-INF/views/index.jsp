@@ -8,11 +8,13 @@
 <title>Index</title>
 </head>
 <body>
+<h2> Welcome to eLearning portal</h2>
+<hr>
 <a href = "admin-list"> admin</a>
 <a href = "user-list"> user</a>
 <a href = "course-list"> course</a>
 <a href = "feedback-list"> feedback</a>
 <a href = "contact-list">contact</a>
-<h2> hii</h2>
+
 </body>
 </html>

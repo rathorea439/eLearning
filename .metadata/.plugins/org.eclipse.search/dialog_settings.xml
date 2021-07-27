@@ -6,26 +6,73 @@
 	<section name="">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
 	</section>
+	<section name="">
+		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
+	</section>
 	<section name="TextSearchPage">
-		<item value="1" key="HISTORY_SIZE"/>
-		<item value="false" key="CASE_SENSITIVE"/>
+		<item value="4" key="HISTORY_SIZE"/>
+		<item value="true" key="CASE_SENSITIVE"/>
 		<item value="false" key="REG_EX_SEARCH"/>
 		<item value="false" key="WHOLE_WORD"/>
 		<item value="false" key="SEARCH_DERIVED"/>
 		<item value="false" key="SEARCH_IN_BINARIES"/>
 		<section name="EXTENSIONS">
-			<item value="Course.jsp" key="0"/>
-			<item value="CourseController.java" key="1"/>
-			<item value="CourseController" key="2"/>
+			<item value="update-contact.jsp" key="0"/>
+			<item value="add-contact.jsp" key="1"/>
+			<item value="Contact.jsp" key="2"/>
+			<item value="ContactController.java" key="3"/>
+			<item value="update-feedback.jsp" key="4"/>
+			<item value="add-feedback.jsp" key="5"/>
+			<item value="Feedback.jsp" key="6"/>
+			<item value="FeedbackController.java" key="7"/>
+			<item value="update-user.jsp" key="8"/>
+			<item value="add-user.jsp" key="9"/>
+			<item value="User.jsp" key="10"/>
 		</section>
-		<section name="HISTORY0">
-			<item value="true" key="ignoreCase"/>
+		<section name="HISTORY2">
+			<item value="false" key="ignoreCase"/>
+			<item value="0" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="admin" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="update-course.jsp"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY3">
+			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
 			<item value="Admin" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="Course.jsp"/>
+				<item value="CourseController.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY0">
+			<item value="false" key="ignoreCase"/>
+			<item value="0" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="course" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="update-contact.jsp"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY1">
+			<item value="false" key="ignoreCase"/>
+			<item value="0" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="Course" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="update-contact.jsp"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -56,7 +103,12 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
-			<item value="Course"/>
+			<item value="contact"/>
+			<item value="Contact"/>
+			<item value="feedback"/>
+			<item value="Feedback"/>
+			<item value="user"/>
+			<item value="User"/>
 		</list>
 	</section>
 	<section name="SearchDialog">

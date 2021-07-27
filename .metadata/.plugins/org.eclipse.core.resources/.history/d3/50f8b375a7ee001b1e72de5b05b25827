@@ -1,0 +1,6 @@
+package snippet;
+
+public class Snippet {
+	completed all module frontend and backend. In user table i took data type of upload_photo is varchar. I have also updated on github.
+}
+

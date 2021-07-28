@@ -1,3 +1,22 @@
 192.168.1.6 - - [27/Jul/2021:10:30:49 +0530] "-" 400 3310
 127.0.0.1 - - [27/Jul/2021:12:25:07 +0530] "GET / HTTP/1.1" 404 751
 0:0:0:0:0:0:0:1 - - [27/Jul/2021:12:25:08 +0530] "GET /eLearing-springMVC/ HTTP/1.1" 200 452
+127.0.0.1 - - [27/Jul/2021:18:55:45 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:18:55:47 +0530] "GET /eLearing-springMVC/ HTTP/1.1" 200 452
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:18:56:56 +0530] "GET /eLearing-springMVC/ HTTP/1.1" 200 484
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:18:57:11 +0530] "GET /eLearing-springMVC/admin-list HTTP/1.1" 200 1951
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:18:57:18 +0530] "GET /eLearing-springMVC/user-list HTTP/1.1" 200 2678
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:18:57:22 +0530] "GET /eLearing-springMVC/course-list HTTP/1.1" 200 1647
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:18:57:24 +0530] "GET /eLearing-springMVC/feedback-list HTTP/1.1" 200 1058
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:18:57:27 +0530] "GET /eLearing-springMVC/contact-list HTTP/1.1" 200 2001
+127.0.0.1 - - [27/Jul/2021:19:54:12 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:14 +0530] "GET /eLearing-springMVC/ HTTP/1.1" 200 484
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:17 +0530] "GET /eLearing-springMVC/admin-list HTTP/1.1" 200 1951
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:19 +0530] "GET /eLearing-springMVC/addadmin HTTP/1.1" 200 682
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:32 +0530] "POST /eLearing-springMVC/register HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:32 +0530] "GET /eLearing-springMVC/admin-list HTTP/1.1" 200 2181
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:36 +0530] "GET /eLearing-springMVC/update-admin/12 HTTP/1.1" 200 774
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:41 +0530] "POST /eLearing-springMVC/update-admin HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:41 +0530] "GET /eLearing-springMVC/admin-list HTTP/1.1" 200 2179
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:43 +0530] "GET /eLearing-springMVC/delete-admin/12 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Jul/2021:19:54:43 +0530] "GET /eLearing-springMVC/admin-list HTTP/1.1" 200 1951

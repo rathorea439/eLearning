@@ -8,19 +8,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import com.amdocs.training.dao.CourseDAO;
 import com.amdocs.training.model.Course;
 import com.amdocs.training.DBUtil;
 
 public class CourseDAOImpl implements CourseDAO {
 
-	Connection conn = DBUtil.getConnection();
+	DataSource dataSource = DBUtil.dataSource();
 
 	@Override
 	public List<Course> findAll() {
 		List<Course> courses = new ArrayList<Course>();
 		String sql = "select * from course";
 		try {
+			Connection conn = dataSource.getConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 
@@ -47,6 +50,7 @@ public class CourseDAOImpl implements CourseDAO {
 		String query = "insert into course values(?,?,?,?,?)";
 
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 
 			ps.setInt(1, course.getCourse_id());
@@ -68,6 +72,7 @@ public class CourseDAOImpl implements CourseDAO {
 	public Course getCourseById(int id) {
 		String query = "select * from course where course_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
@@ -92,6 +97,7 @@ public class CourseDAOImpl implements CourseDAO {
 	public boolean deleteCourse(int id) {
 		String query = "delete from course where course_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, id);
 			System.out.println(id);
@@ -108,6 +114,7 @@ public class CourseDAOImpl implements CourseDAO {
 	public boolean updateCourse(Course course) {
 		String query = "update course set course_id =?,c_name = ?,c_desp=?,c_fees=?,c_resource=? where course_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, course.getCourse_id());
 			ps.setString(2, course.getC_name());

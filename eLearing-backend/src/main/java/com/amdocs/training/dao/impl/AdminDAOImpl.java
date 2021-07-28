@@ -8,19 +8,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import com.amdocs.training.dao.AdminDAO;
 import com.amdocs.training.model.Admin;
 import com.amdocs.training.DBUtil;
 
 public class AdminDAOImpl implements AdminDAO {
 
-	Connection conn = DBUtil.getConnection();
+	DataSource dataSource = DBUtil.dataSource();
 
 	@Override
 	public List<Admin> findAll() {
 		List<Admin> admins = new ArrayList<Admin>();
 		String sql = "select * from admin";
 		try {
+			Connection conn = dataSource.getConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 
@@ -46,6 +49,7 @@ public class AdminDAOImpl implements AdminDAO {
 		String query = "insert into admin values(?,?,?,?)";
 
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 
 			ps.setLong(1, admin.getAdmin_id());
@@ -66,6 +70,7 @@ public class AdminDAOImpl implements AdminDAO {
 	public Admin getAdminById(int id) {
 		String query = "select * from admin where admin_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setLong(1, id);
 			ResultSet rs = ps.executeQuery();
@@ -89,6 +94,7 @@ public class AdminDAOImpl implements AdminDAO {
 	public boolean deleteAdmin(int id) {
 		String query = "delete from admin where admin_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, id);
 			System.out.println(id);
@@ -105,6 +111,7 @@ public class AdminDAOImpl implements AdminDAO {
 	public boolean updateAdmin(Admin admin) {
 		String query = "update admin set admin_id =?,name = ?,email=?,password=? where admin_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, admin.getAdmin_id());
 			ps.setString(2, admin.getName());

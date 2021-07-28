@@ -8,19 +8,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import com.amdocs.training.dao.FeedbackDAO;
 import com.amdocs.training.model.Feedback;
 import com.amdocs.training.DBUtil;
 
 public class FeedbackDAOImpl implements FeedbackDAO {
 
-	Connection conn = DBUtil.getConnection();
+	DataSource dataSource = DBUtil.dataSource();
+	
 
 	@Override
 	public List<Feedback> findAll() {
 		List<Feedback> feedbacks = new ArrayList<Feedback>();
 		String sql = "select * from feedback";
 		try {
+			Connection conn = dataSource.getConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 
@@ -47,6 +51,7 @@ public class FeedbackDAOImpl implements FeedbackDAO {
 		String query = "insert into feedback values(?,?,?,?,?)";
 
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 
 			ps.setInt(1, feedback.getUser_id());
@@ -68,6 +73,7 @@ public class FeedbackDAOImpl implements FeedbackDAO {
 	public Feedback getFeedbackById(int id) {
 		String query = "select * from feedback where f_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
@@ -92,6 +98,7 @@ public class FeedbackDAOImpl implements FeedbackDAO {
 	public boolean deleteFeedback(int id) {
 		String query = "delete from feedback where f_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, id);
 			System.out.println(id);
@@ -108,6 +115,7 @@ public class FeedbackDAOImpl implements FeedbackDAO {
 	public boolean updateFeedback(Feedback feedback) {
 		String query = "update feedback set user_id =?,name = ?,email=?,f_id=?,feedback=? where f_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setInt(1, feedback.getUser_id());
 			ps.setString(2, feedback.getName());

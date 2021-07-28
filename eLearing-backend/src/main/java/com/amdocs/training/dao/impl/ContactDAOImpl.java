@@ -8,18 +8,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import com.amdocs.training.dao.ContactDAO;
 import com.amdocs.training.model.Contact;
 import com.amdocs.training.DBUtil;
 
 public class ContactDAOImpl implements ContactDAO {
-	Connection conn = DBUtil.getConnection();
-
+	DataSource dataSource = DBUtil.dataSource();
+	
 	@Override
 	public List<Contact> findAll() {
 		List<Contact> contacts = new ArrayList<Contact>();
 		String sql = "select * from contact";
 		try {
+			Connection conn = dataSource.getConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 
@@ -47,6 +50,7 @@ public class ContactDAOImpl implements ContactDAO {
 		String query = "insert into contact values(?,?,?,?,?,?)";
 
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 
 			ps.setLong(1, contact.getUser_id());
@@ -69,6 +73,7 @@ public class ContactDAOImpl implements ContactDAO {
 	public Contact getContactById(int id) {
 		String query = "select * from contact where contact_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setLong(1, id);
 			ResultSet rs = ps.executeQuery();
@@ -94,6 +99,7 @@ public class ContactDAOImpl implements ContactDAO {
 	public boolean deleteContact(int id) {
 		String query = "delete from contact where contact_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setLong(1, id);
 			System.out.println(id);
@@ -110,6 +116,7 @@ public class ContactDAOImpl implements ContactDAO {
 	public boolean updateContact(Contact contact) {
 		String query = "update contact set user_id =?,name = ?,email=?,phone_no=?,Messege=?,contact_id=? where contact_id = ?";
 		try {
+			Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setLong(1, contact.getUser_id());
 			ps.setString(2, contact.getName());

@@ -17,11 +17,11 @@ public class UserController {
 //		if(status)
 //			System.out.println("User Added Successfully");
 ////		
-//		boolean result = dao.deleteUser(7);
-//		if(result)
-//			System.out.println("User with Id "+102+ " is deleted successfully");
-//		else
-//			System.out.println("No User available");
+		boolean result = dao.deleteUser(6);
+		if(result)
+			System.out.println("User with Id "+102+ " is deleted successfully");
+		else
+			System.out.println("No User available");
 //		
 //		User userById = dao.getUserById(6);
 //		System.out.println("detail of user_Id 104 "+userById);

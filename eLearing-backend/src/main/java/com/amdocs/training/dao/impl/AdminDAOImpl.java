@@ -126,5 +126,9 @@ public class AdminDAOImpl implements AdminDAO {
 		}
 		return false;
 	}
+//	public boolean adminValidate(int id,int password)
+//	{
+//		String query =
+//	}
 
 }

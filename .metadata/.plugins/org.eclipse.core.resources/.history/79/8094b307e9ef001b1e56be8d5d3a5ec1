@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add User</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+	<div class="container" style="width:60%;margin: 0px auto">
+	<h3>Registration form</h3>
+	<hr>
+	<form:form action="userregister" method="POST" modelAttribute="user">
+		<pre>
+        Id        : <form:input path="user_id" /><br>
+        User name  : <form:input path="name"/><br>
+        User phone number  : <form:input path="phone_no"/><br>
+        User email  : <form:input path="email"/><br>
+        User address  : <form:input path="address"/><br>
+        User registration date  : <form:input path="reg_date"/><br>
+        User password  : <form:password path="password"/><br>
+		User photo  : <form:input path="upload_photo"/><br>        
+        <input type="submit" value="Register" /> <input
+				type="reset" value="Reset" />
+        </pre>
+	</form:form>
+	</div>
+</body>
+</html>

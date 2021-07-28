@@ -4,11 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
 <title>Add admin</title>
 </head>
 <body>
-	<h2>User Registration</h2>
+	<h2>Admin Registration</h2>
 	<hr>
 	<form:form action="register" method="POST" modelAttribute="admin">
 		<pre>

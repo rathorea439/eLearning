@@ -1,6 +1,8 @@
 package com.amdocs.training.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.amdocs.training.dao.AdminDAO;
 import com.amdocs.training.dao.impl.AdminDAOImpl;
 import com.amdocs.training.model.Admin;
+import com.amdocs.training.pojo.AdminPOJO;
+
+import javafx.util.Pair;
 
 @Controller
 public class AdminController {
@@ -22,9 +27,31 @@ public class AdminController {
 		List<Admin> adminList=adminDAO.findAll();
 		
 		model.addAttribute("list",adminList);
-		model.addAttribute("message", "Welcome to eLearning Portal");
+		//model.addAttribute("message", "Welcome to eLearning Portal");
 		return "Admin";
 		
+	}
+	@GetMapping("/admin")
+	public String adminHome(Model model) {
+		//HashMap<Integer, String> map = new HashMap<>();
+		model.addAttribute("admin", new AdminPOJO());
+		
+		//model.addAttribute("adminPOJO",);
+		return "admin-home";
+	}
+	@PostMapping("/admin-login")
+	public String adminPage(@ModelAttribute("admin") AdminPOJO p){
+		System.out.println(p);
+		Admin admin=adminDAO.getAdminById(p.getId());
+		if(admin.getPassword().equals(p.getPassword()))
+		{
+			
+			return "Admin";
+		}
+		else{
+			
+			return "loginFailed";
+		}
 	}
 	@GetMapping("/addadmin")
 	public String addAdminForm(Model model) {
@@ -35,6 +62,7 @@ public class AdminController {
 	@PostMapping("/register")
 	public String addUser(@ModelAttribute("admin") Admin u) {
 		adminDAO.addAdmin(u);
+		//System.out.println(u);
 		return "redirect:/admin-list";
 	}
 	

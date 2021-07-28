@@ -41,5 +41,6 @@
 		</c:forEach>
 	</table>
 	<a href = "adduser">add new user</a>
+	<a href = "course-list"> course</a>
 </body>
 </html>
